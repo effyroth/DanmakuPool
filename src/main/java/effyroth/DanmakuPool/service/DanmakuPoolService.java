@@ -23,11 +23,11 @@ public class DanmakuPoolService {
 		return danmakuPoolDao.get(queryParams);
 	}
 
-	public long save(DanmakuPool survey) {
-		survey.setId(IdUtil.nextId());
-		survey.setCreatedAt(new Date().getTime());
+	public long save(DanmakuPool danaku) {
+		danaku.setId(IdUtil.nextId());
+		danaku.setCreatedAt(new Date().getTime());
 
-		danmakuPoolDao.save(survey);
-		return survey.getId();
+		danmakuPoolDao.save(danaku);
+		return danaku.getId();
 	}
 }

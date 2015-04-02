@@ -32,8 +32,8 @@ public class DanmakuHandler {
 		queryParams.setPageNo(pageNo);
 		queryParams.setPageSize(pageSize);
 
-		ListPage<Danmaku> surveys = danmakuService.get(poolId, queryParams);
-		ListPage<DanmakuView> listPage = DanmakuView.fromModelList(surveys);
+		ListPage<Danmaku> danmakus = danmakuService.get(poolId, queryParams);
+		ListPage<DanmakuView> listPage = DanmakuView.fromModelList(danmakus);
 		return CodeMsg.success().data(listPage);
 
 
@@ -49,7 +49,7 @@ public class DanmakuHandler {
 		try {
 			danmaku = JacksonUtils.toBean(dataJson, Danmaku.class);
 			danmaku.setPoolId(poolId);
-			log.info("survey" + danmaku);
+			log.info("danmaku" + danmaku);
 			
 			long danmakuId = danmakuService.save(danmaku);
 			
@@ -57,7 +57,7 @@ public class DanmakuHandler {
 			data.put("id", String.valueOf(danmakuId));
 			return CodeMsg.success().data(data);
 		} catch (Exception e1) {
-			log.error(String.format("parse survey json error %s", e1.getMessage()), e1);
+			log.error(String.format("parse danmaku json error %s", e1.getMessage()), e1);
 			return CodeMsg.failure(400, "数据格式错误," + e1.getMessage());
 		}
 

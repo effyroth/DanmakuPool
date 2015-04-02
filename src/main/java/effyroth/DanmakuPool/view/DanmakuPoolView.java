@@ -23,8 +23,8 @@ public class DanmakuPoolView {
 		List<DanmakuPoolView> viewList = Lists.newArrayList();
 		if(listPage.getDataList() != null){
 			for(DanmakuPool danmakuPool : listPage.getDataList()){
-				DanmakuPoolView surveyView = fromModel(danmakuPool);
-				viewList.add(surveyView);
+				DanmakuPoolView danmakuPoolView = fromModel(danmakuPool);
+				viewList.add(danmakuPoolView);
 			}
 		}
 		

@@ -39,8 +39,8 @@ public class DanmakuView {
 		List<DanmakuView> viewList = Lists.newArrayList();
 		if(listPage.getDataList() != null){
 			for(Danmaku danmaku : listPage.getDataList()){
-				DanmakuView surveyView = fromModel(danmaku);
-				viewList.add(surveyView);
+				DanmakuView danakuView = fromModel(danmaku);
+				viewList.add(danakuView);
 			}
 		}
 		
